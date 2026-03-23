@@ -8,7 +8,7 @@ namespace LearningApp.Domain.Entities
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<UserLessonProgress> LessonProgress { get; set; } = new List<UserLessonProgress>();
+        public ICollection<UserLessonProgress> LessonProgresses { get; set; } = new List<UserLessonProgress>();
 
     }
 }
