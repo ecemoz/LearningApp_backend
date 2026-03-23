@@ -393,6 +393,29 @@
         "build": {
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "LearningApp.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "LearningApp.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LearningApp.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LearningApp.Application.dll": {}
+        }
+      },
+      "LearningApp.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/LearningApp.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LearningApp.Domain.dll": {}
+        }
       }
     }
   },
@@ -903,10 +926,21 @@
         "xunit.runner.visualstudio.3.1.4.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "LearningApp.Application/1.0.0": {
+      "type": "project",
+      "path": "../../src/LearningApp.Application/LearningApp.Application.csproj",
+      "msbuildProject": "../../src/LearningApp.Application/LearningApp.Application.csproj"
+    },
+    "LearningApp.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../src/LearningApp.Domain/LearningApp.Domain.csproj",
+      "msbuildProject": "../../src/LearningApp.Domain/LearningApp.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "LearningApp.Application >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.14.1",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
@@ -938,7 +972,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj": {
+              "projectPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

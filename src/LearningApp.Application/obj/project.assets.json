@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "LearningApp.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/LearningApp.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LearningApp.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LearningApp.Domain/1.0.0": {
+      "type": "project",
+      "path": "../LearningApp.Domain/LearningApp.Domain.csproj",
+      "msbuildProject": "../LearningApp.Domain/LearningApp.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "LearningApp.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/ecemnurozen/.nuget/packages/": {}
@@ -32,7 +51,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj": {
+              "projectPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

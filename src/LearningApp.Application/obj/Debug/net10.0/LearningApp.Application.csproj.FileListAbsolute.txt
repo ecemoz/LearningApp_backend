@@ -1,0 +1,16 @@
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/bin/Debug/net10.0/LearningApp.Application.deps.json
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/bin/Debug/net10.0/LearningApp.Application.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/bin/Debug/net10.0/LearningApp.Application.pdb
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/bin/Debug/net10.0/LearningApp.Domain.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/bin/Debug/net10.0/LearningApp.Domain.pdb
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.csproj.AssemblyReference.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.AssemblyInfoInputs.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.AssemblyInfo.cs
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.csproj.CoreCompileInputs.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.sourcelink.json
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/Learning.C8078373.Up2Date
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/refint/LearningApp.Application.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/LearningApp.Application.pdb
+/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/Debug/net10.0/ref/LearningApp.Application.dll
