@@ -1,0 +1,15 @@
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/bin/Debug/net10.0/CheckOpenApi
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/bin/Debug/net10.0/CheckOpenApi.deps.json
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/bin/Debug/net10.0/CheckOpenApi.runtimeconfig.json
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/bin/Debug/net10.0/CheckOpenApi.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/bin/Debug/net10.0/CheckOpenApi.pdb
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.AssemblyInfoInputs.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.AssemblyInfo.cs
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.csproj.CoreCompileInputs.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.sourcelink.json
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/refint/CheckOpenApi.dll
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.pdb
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/CheckOpenApi.genruntimeconfig.cache
+/Users/ecemnurozen/Projects/LearningApp_backend/CheckOpenApi/obj/Debug/net10.0/ref/CheckOpenApi.dll
