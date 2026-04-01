@@ -11,4 +11,6 @@ public class Topic
     public int Order { get; set; } // Bir konu sıralaması için ...
 
     public ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
+
+    public ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 }

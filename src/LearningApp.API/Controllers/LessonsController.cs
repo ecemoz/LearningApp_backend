@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using LearningApp.Domain.Entities;
 using LearningApp.Infrastructure.Persistence;
+using LearningApp.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace LearningApp.API.Controllers;
 public class LessonsController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly AchievementService _achievementService;
 
-    public LessonsController(AppDbContext context)
+    public LessonsController(AppDbContext context, AchievementService achievementService)
     {
         _context = context;
+        _achievementService = achievementService;
     }
 
     [HttpGet("{id:guid}")]
@@ -84,6 +87,15 @@ public class LessonsController : ControllerBase
         }
 
         await _context.SaveChangesAsync();
+
+        // Check achievement conditions after the completion is persisted.
+        var topicId = await _context.Lessons
+            .Where(l => l.Id == lessonId)
+            .Select(l => l.TopicId)
+            .FirstAsync();
+
+        await _achievementService.EnsureFirstLessonAchievementAsync(userId);
+        await _achievementService.EnsureTopicCompleteAchievementAsync(userId, topicId);
 
         return Ok(new
         {

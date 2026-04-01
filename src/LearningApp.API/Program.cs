@@ -2,6 +2,7 @@ using System.Text;
 using LearningApp.Infrastructure.Authentication;
 using LearningApp.Infrastructure.Persistence;
 using LearningApp.Infrastructure.Persistence.Seed;
+using LearningApp.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -39,6 +40,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<JwtTokenGenerator>();
+builder.Services.AddScoped<AchievementService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

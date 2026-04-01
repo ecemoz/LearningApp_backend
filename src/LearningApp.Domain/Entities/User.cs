@@ -10,5 +10,9 @@ namespace LearningApp.Domain.Entities
 
         public ICollection<UserLessonProgress> LessonProgresses { get; set; } = new List<UserLessonProgress>();
 
+        public ICollection<UserQuizAttempt> QuizAttempts { get; set; } = new List<UserQuizAttempt>();
+
+        public ICollection<UserAchievement> UserAchievements { get; set; } = new List<UserAchievement>();
+
     }
 }
