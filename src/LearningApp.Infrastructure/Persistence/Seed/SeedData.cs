@@ -1,4 +1,5 @@
 using LearningApp.Domain.Entities;
+using LearningApp.Infrastructure.Authentication;
 using LearningApp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,10 @@ public static class SeedData
 {
     public static async Task InitializeAsync(AppDbContext context)
     {
+        var passwordHasher = new PasswordHasher();
+
+        await EnsureAdminUserAsync(context, passwordHasher);
+
         // Seed all base data in an idempotent way so reruns do not duplicate rows.
         var cSharpTopic = await EnsureTopicAsync(
             context,
@@ -75,6 +80,27 @@ public static class SeedData
             "Complete all lessons in a topic");
 
         await context.SaveChangesAsync();
+    }
+
+    private static async Task EnsureAdminUserAsync(AppDbContext context, PasswordHasher passwordHasher)
+    {
+        var adminExists = await context.Users.AnyAsync(u =>
+            u.UserName == "admin" || u.Email == "admin@learningapp.com");
+
+        if (adminExists)
+        {
+            return;
+        }
+
+        await context.Users.AddAsync(new User
+        {
+            Id = Guid.NewGuid(),
+            UserName = "admin",
+            Email = "admin@learningapp.com",
+            PasswordHash = passwordHasher.HashPassword("Admin123!"),
+            Role = "Admin",
+            CreatedAt = DateTime.UtcNow
+        });
     }
 
     private static async Task<Topic> EnsureTopicAsync(

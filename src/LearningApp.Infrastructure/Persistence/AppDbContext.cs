@@ -36,6 +36,11 @@ public class AppDbContext : DbContext
                 .IsRequired()
                 .HasMaxLength(150);
 
+            entity.Property(x => x.Role)
+                .IsRequired()
+                .HasMaxLength(30)
+                .HasDefaultValue("User");
+
             entity.Property(x => x.PasswordHash)
                 .IsRequired();
 

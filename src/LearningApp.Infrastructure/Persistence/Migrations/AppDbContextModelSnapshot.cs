@@ -188,6 +188,12 @@ namespace LearningApp.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasDefaultValue("User")
+                        .HasColumnType("character varying(30)");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(100)

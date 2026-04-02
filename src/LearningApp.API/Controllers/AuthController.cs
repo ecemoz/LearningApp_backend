@@ -41,6 +41,7 @@ public class AuthController : ControllerBase
             Id = Guid.NewGuid(),
             UserName = request.UserName,
             Email = request.Email,
+            Role = "User",
             PasswordHash = _passwordHasher.HashPassword(request.Password),
             CreatedAt = DateTime.UtcNow
         };
@@ -54,7 +55,8 @@ public class AuthController : ControllerBase
         {
             Token = token,
             UserName = user.UserName,
-            Email = user.Email
+            Email = user.Email,
+            Role = user.Role
         };
 
         return Ok(response);
@@ -81,7 +83,8 @@ public class AuthController : ControllerBase
         {
             Token = token,
             UserName = user.UserName,
-            Email = user.Email
+            Email = user.Email,
+            Role = user.Role
         };
 
         return Ok(response);
@@ -94,12 +97,14 @@ public class AuthController : ControllerBase
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var userName = User.FindFirst(ClaimTypes.Name)?.Value;
         var email = User.FindFirst(ClaimTypes.Email)?.Value;
+        var role = User.FindFirst(ClaimTypes.Role)?.Value;
 
         return Ok(new
         {
             userId,
             userName,
-            email
+            email,
+            role
         });
     }
 }
