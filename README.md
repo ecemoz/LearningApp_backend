@@ -94,17 +94,25 @@ dotnet restore
 
 ### 3. Configure Environment
 
-Default settings live in [src/LearningApp.API/appsettings.json](src/LearningApp.API/appsettings.json).
+Default settings live in [src/LearningApp.API/appsettings.json](src/LearningApp.API/appsettings.json), but the app expects the database connection to come from environment variables or a local `.env` file.
 
-You can override settings through environment variables (recommended):
+For local development, copy [.env.example](.env.example) to `.env` and fill in your Supabase password:
 
 ```bash
-export ConnectionStrings__DefaultConnection="Host=localhost;Port=5432;Database=LearningAppDb;Username=postgres;Password=postgres"
-export Jwt__Key="replace-with-a-strong-secret-key-at-least-32-characters"
-export Jwt__Issuer="LearningAppAPI"
-export Jwt__Audience="LearningAppClient"
-export Jwt__ExpiryMinutes="60"
+cp .env.example .env
 ```
+
+Then set your values in `.env`:
+
+```bash
+ConnectionStrings__DefaultConnection="Host=aws-1-eu-central-1.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.bqazpdtajuronszrzypj;Password=YOUR_PASSWORD;Ssl Mode=Require;Trust Server Certificate=true"
+Jwt__Key="replace-with-a-strong-secret-key-at-least-32-characters"
+Jwt__Issuer="LearningAppAPI"
+Jwt__Audience="LearningAppClient"
+Jwt__ExpiryMinutes="60"
+```
+
+Render should use the same `ConnectionStrings__DefaultConnection` value as an environment variable; do not put it in source control.
 
 ### 4. Run The API
 
