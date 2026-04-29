@@ -8,7 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
-LoadEnvironmentFile(FindEnvironmentFile(".env"));
+var environmentFile = FindEnvironmentFile(".env");
+if (environmentFile is not null)
+{
+    LoadEnvironmentFile(environmentFile);
+}
 
 var builder = WebApplication.CreateBuilder(args);
 var enableSwagger = builder.Configuration.GetValue("Swagger:Enabled", builder.Environment.IsDevelopment());
