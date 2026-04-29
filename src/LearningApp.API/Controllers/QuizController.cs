@@ -127,6 +127,7 @@ public class QuizController : ControllerBase
 
         // Award first quiz achievement after a successful attempt save.
         await _achievementService.EnsureFirstQuizAchievementAsync(userId);
+        await _achievementService.EnsureTopicAchievementAsync(userId, quiz.TopicId);
 
         var response = new QuizResultResponseDto
         {

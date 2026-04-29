@@ -37,29 +37,73 @@ public class AchievementService
         }
     }
 
-    public async Task EnsureTopicCompleteAchievementAsync(Guid userId, Guid topicId)
+    public async Task EnsureTopicAchievementAsync(Guid userId, Guid topicId)
     {
-        // Compare total lessons in topic with user's completed lessons in that topic.
-        var totalLessonsInTopic = await _context.Lessons.CountAsync(l => l.TopicId == topicId);
-        if (totalLessonsInTopic == 0)
+        // Bulunulan topic ile ilişkilendirilmiş bir achievement var mı?
+        var topicAchievement = await _context.Achievements
+            .FirstOrDefaultAsync(a => a.TopicId == topicId);
+
+        if (topicAchievement is null)
+        {
+            return; // Topic'e bağlı achievement yoksa çık
+        }
+
+        // Kullanıcı bu achievement'ı önceden kazanmış mı?
+        var alreadyEarned = await _context.UserAchievements
+            .AnyAsync(ua => ua.UserId == userId && ua.AchievementId == topicAchievement.Id);
+
+        if (alreadyEarned)
         {
             return;
         }
 
-        var completedLessonsInTopic = await (
-            from progress in _context.UserLessonProgresses
-            join lesson in _context.Lessons on progress.LessonId equals lesson.Id
-            where progress.UserId == userId
-                && progress.IsCompleted
-                && lesson.TopicId == topicId
-            select progress.LessonId)
+        // Topic'teki toplam lesson sayısı ve kullanıcının tamamladıkları
+        var totalLessonsInTopic = await _context.Lessons.CountAsync(l => l.TopicId == topicId);
+        
+        var completedLessonsInTopic = await _context.UserLessonProgresses
+            .Where(p => p.UserId == userId && p.IsCompleted && p.Lesson.TopicId == topicId)
+            .Select(p => p.LessonId)
             .Distinct()
             .CountAsync();
 
-        if (completedLessonsInTopic == totalLessonsInTopic)
+        if (totalLessonsInTopic > 0 && completedLessonsInTopic < totalLessonsInTopic)
         {
-            await AwardIfMissingAsync(userId, "topic_complete");
+            return; // Henüz tüm dersleri tamamlamamış
         }
+
+        // Topic'teki quizler
+        var totalQuizzesInTopic = await _context.Quizzes.CountAsync(q => q.TopicId == topicId);
+        
+        if (totalQuizzesInTopic > 0)
+        {
+            var attemptedQuizzesInTopic = await _context.UserQuizAttempts
+                .Where(uqa => uqa.UserId == userId && uqa.Quiz.TopicId == topicId)
+                .Select(uqa => uqa.QuizId)
+                .Distinct()
+                .CountAsync();
+
+            if (attemptedQuizzesInTopic < totalQuizzesInTopic)
+            {
+                return; // Henüz tüm quizleri çözmemiş
+            }
+        }
+
+        // Eğer lesson yoksa ve quiz yoksa edge case: 
+        if (totalLessonsInTopic == 0 && totalQuizzesInTopic == 0)
+        {
+             return; // Boş topic için achievement vermeyelim
+        }
+
+        // Tüm dersler tamamlandı (veya yok), tüm quizler denendi (veya yok), achievement'ı ver!
+        await _context.UserAchievements.AddAsync(new UserAchievement
+        {
+            Id = Guid.NewGuid(),
+            UserId = userId,
+            AchievementId = topicAchievement.Id,
+            EarnedAt = DateTime.UtcNow
+        });
+
+        await _context.SaveChangesAsync();
     }
 
     private async Task AwardIfMissingAsync(Guid userId, string achievementCode)

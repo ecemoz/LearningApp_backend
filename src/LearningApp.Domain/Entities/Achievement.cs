@@ -10,5 +10,9 @@ public class Achievement
 
     public string Description { get; set; } = string.Empty;
 
+    public Guid? TopicId { get; set; }
+
+    public Topic? Topic { get; set; }
+
     public ICollection<UserAchievement> UserAchievements { get; set; } = new List<UserAchievement>();
 }

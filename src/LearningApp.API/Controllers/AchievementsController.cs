@@ -36,6 +36,8 @@ public class AchievementsController : ControllerBase
                 code = ua.Achievement != null ? ua.Achievement.Code : string.Empty,
                 title = ua.Achievement != null ? ua.Achievement.Title : string.Empty,
                 description = ua.Achievement != null ? ua.Achievement.Description : string.Empty,
+                topicId = ua.Achievement != null ? ua.Achievement.TopicId : null,
+                topicTitle = ua.Achievement != null && ua.Achievement.Topic != null ? ua.Achievement.Topic.Title : null,
                 earnedAt = ua.EarnedAt
             })
             .ToListAsync();

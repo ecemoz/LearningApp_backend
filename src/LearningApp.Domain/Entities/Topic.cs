@@ -13,4 +13,6 @@ public class Topic
     public ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
 
     public ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
+
+    public ICollection<Achievement> Achievements { get; set; } = new List<Achievement>();
 }

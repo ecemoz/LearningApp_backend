@@ -23,13 +23,16 @@ public class AdminAchievementsController : ControllerBase
     public async Task<IActionResult> GetAchievements()
     {
         var achievements = await _context.Achievements
+            .Include(a => a.Topic)
             .OrderBy(a => a.Code)
             .Select(a => new AdminAchievementResponseDto
             {
                 Id = a.Id,
                 Code = a.Code,
                 Title = a.Title,
-                Description = a.Description
+                Description = a.Description,
+                TopicId = a.TopicId,
+                TopicTitle = a.Topic != null ? a.Topic.Title : null
             })
             .ToListAsync();
 
@@ -40,13 +43,16 @@ public class AdminAchievementsController : ControllerBase
     public async Task<IActionResult> GetAchievementById(Guid id)
     {
         var achievement = await _context.Achievements
+            .Include(a => a.Topic)
             .Where(a => a.Id == id)
             .Select(a => new AdminAchievementResponseDto
             {
                 Id = a.Id,
                 Code = a.Code,
                 Title = a.Title,
-                Description = a.Description
+                Description = a.Description,
+                TopicId = a.TopicId,
+                TopicTitle = a.Topic != null ? a.Topic.Title : null
             })
             .FirstOrDefaultAsync();
 
@@ -72,18 +78,25 @@ public class AdminAchievementsController : ControllerBase
             Id = Guid.NewGuid(),
             Code = request.Code,
             Title = request.Title,
-            Description = request.Description
+            Description = request.Description,
+            TopicId = request.TopicId
         };
 
         _context.Achievements.Add(achievement);
         await _context.SaveChangesAsync();
+
+        var createdTopic = request.TopicId.HasValue 
+            ? await _context.Topics.Where(t => t.Id == request.TopicId.Value).Select(t => t.Title).FirstOrDefaultAsync()
+            : null;
 
         return CreatedAtAction(nameof(GetAchievementById), new { id = achievement.Id }, new AdminAchievementResponseDto
         {
             Id = achievement.Id,
             Code = achievement.Code,
             Title = achievement.Title,
-            Description = achievement.Description
+            Description = achievement.Description,
+            TopicId = achievement.TopicId,
+            TopicTitle = createdTopic
         });
     }
 
@@ -107,15 +120,22 @@ public class AdminAchievementsController : ControllerBase
         achievement.Code = request.Code;
         achievement.Title = request.Title;
         achievement.Description = request.Description;
+        achievement.TopicId = request.TopicId;
 
         await _context.SaveChangesAsync();
+
+        var updatedTopic = request.TopicId.HasValue 
+            ? await _context.Topics.Where(t => t.Id == request.TopicId.Value).Select(t => t.Title).FirstOrDefaultAsync()
+            : null;
 
         return Ok(new AdminAchievementResponseDto
         {
             Id = achievement.Id,
             Code = achievement.Code,
             Title = achievement.Title,
-            Description = achievement.Description
+            Description = achievement.Description,
+            TopicId = achievement.TopicId,
+            TopicTitle = updatedTopic
         });
     }
 

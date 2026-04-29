@@ -165,6 +165,11 @@ public class AppDbContext : DbContext
                 .HasMaxLength(500);
 
             entity.HasIndex(x => x.Code).IsUnique();
+
+            entity.HasOne(x => x.Topic)
+                .WithMany(x => x.Achievements)
+                .HasForeignKey(x => x.TopicId)
+                .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<UserAchievement>(entity =>

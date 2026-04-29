@@ -95,7 +95,7 @@ public class LessonsController : ControllerBase
             .FirstAsync();
 
         await _achievementService.EnsureFirstLessonAchievementAsync(userId);
-        await _achievementService.EnsureTopicCompleteAchievementAsync(userId, topicId);
+        await _achievementService.EnsureTopicAchievementAsync(userId, topicId);
 
         return Ok(new
         {
