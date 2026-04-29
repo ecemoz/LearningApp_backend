@@ -11,6 +11,7 @@ using Microsoft.OpenApi;
 LoadEnvironmentFile(FindEnvironmentFile(".env"));
 
 var builder = WebApplication.CreateBuilder(args);
+var enableSwagger = builder.Configuration.GetValue("Swagger:Enabled", builder.Environment.IsDevelopment());
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -79,7 +80,7 @@ using (var scope = app.Services.CreateScope())
     await SeedData.InitializeAsync(context);
 }
 
-if (app.Environment.IsDevelopment())
+if (enableSwagger)
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -89,6 +90,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapGet("/", () => Results.Redirect("/swagger")).AllowAnonymous();
+app.MapGet("/health", () => Results.Ok("OK")).AllowAnonymous();
 
 app.MapControllers();
 

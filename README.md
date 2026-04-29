@@ -110,9 +110,11 @@ Jwt__Key="replace-with-a-strong-secret-key-at-least-32-characters"
 Jwt__Issuer="LearningAppAPI"
 Jwt__Audience="LearningAppClient"
 Jwt__ExpiryMinutes="60"
+Swagger__Enabled="true"
 ```
 
 Render should use the same `ConnectionStrings__DefaultConnection` value as an environment variable; do not put it in source control.
+If you want Swagger UI exposed in production, set `Swagger__Enabled=true` in Render as well.
 
 ### 4. Run The API
 
@@ -126,6 +128,12 @@ Default local URLs from launch profile:
 
 Swagger UI:
 - http://localhost:5253/swagger
+
+Root path:
+- http://localhost:5253/ redirects to Swagger UI
+
+Health check:
+- http://localhost:5253/health
 
 ### 5. Seeded Development Admin Account
 
