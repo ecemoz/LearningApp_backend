@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
                     return false;
                 }
 
-                return uri.Host is "localhost" or "127.0.0.1";
+                return uri.Host is "localhost" or "127.0.0.1" or "vercel.app";
             })
             .AllowAnyHeader()
             .AllowAnyMethod();
