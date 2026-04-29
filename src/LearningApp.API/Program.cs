@@ -117,7 +117,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapGet("/", () => Results.Redirect("/swagger")).AllowAnonymous();
-app.MapGet("/health", () => Results.Ok("OK")).AllowAnonymous();
+app.MapMethods("/health", new[] { "GET", "HEAD" }, () => Results.Ok("OK")).AllowAnonymous();
 
 app.MapControllers();
 
