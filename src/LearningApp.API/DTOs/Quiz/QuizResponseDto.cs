@@ -8,5 +8,7 @@ public class QuizResponseDto
 
     public string Title { get; set; } = string.Empty;
 
+    public int AttemptCount { get; set; }
+
     public List<QuizQuestionResponseDto> Questions { get; set; } = new();
 }
