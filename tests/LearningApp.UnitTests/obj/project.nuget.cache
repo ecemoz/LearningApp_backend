@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NLHklmC/bmc=",
+  "dgSpecHash": "mTjqWvb1y58=",
   "success": true,
-  "projectFilePath": "/Users/ecemnurozen/Downloads/LearningApp_backend/tests/LearningApp.UnitTests/LearningApp.UnitTests.csproj",
+  "projectFilePath": "/Users/ecemnurozen/Projects/LearningApp_backend/tests/LearningApp.UnitTests/LearningApp.UnitTests.csproj",
   "expectedPackageFiles": [
     "/Users/ecemnurozen/.nuget/packages/coverlet.collector/6.0.4/coverlet.collector.6.0.4.nupkg.sha512",
     "/Users/ecemnurozen/.nuget/packages/microsoft.codecoverage/17.14.1/microsoft.codecoverage.17.14.1.nupkg.sha512",

@@ -73,6 +73,7 @@ public class QuizController : ControllerBase
         return Ok(quiz);
     }
 
+
     [Authorize]
     [HttpPost("quizzes/{quizId:guid}/submit")]
     public async Task<IActionResult> SubmitQuiz(Guid quizId, SubmitQuizRequestDto request)
@@ -157,15 +158,6 @@ public class QuizController : ControllerBase
 
         var attemptCount = await _context.UserQuizAttempts.CountAsync(x => x.UserId == userId && x.QuizId == quiz.Id);
 
-        if (attemptCount < 2)
-        {
-            foreach (var qr in questionResults)
-            {
-                qr.IsCorrect = null;
-                qr.CorrectOptionId = null;
-            }
-        }
-
         var response = new QuizResultResponseDto
         {
             QuizId = quiz.Id,
@@ -197,11 +189,6 @@ public class QuizController : ControllerBase
             return Unauthorized("User ID claim missing or invalid.");
         }
 
-        var attemptCount = await _context.UserQuizAttempts.CountAsync(x => x.UserId == userId && x.QuizId == request.QuizId);
-        if (attemptCount < 2)
-        {
-            return BadRequest("Bu sorunun yapay zeka açıklaması için en az 2 deneme yapmalısınız.");
-        }
 
         var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
         if (string.IsNullOrWhiteSpace(apiKey))
