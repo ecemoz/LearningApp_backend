@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj": {}
+    "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj": {}
   },
   "projects": {
-    "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj": {
+    "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj",
+        "projectUniqueName": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj",
         "projectName": "LearningApp.Application",
-        "projectPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj",
+        "projectPath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Application/LearningApp.Application.csproj",
         "packagesPath": "/Users/ecemnurozen/.nuget/packages/",
-        "outputPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Application/obj/",
+        "outputPath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ecemnurozen/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj": {
-                "projectPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj"
+              "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj": {
+                "projectPath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj"
               }
             }
           }
@@ -342,14 +342,14 @@
         }
       }
     },
-    "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj": {
+    "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj",
+        "projectUniqueName": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj",
         "projectName": "LearningApp.Domain",
-        "projectPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj",
+        "projectPath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/LearningApp.Domain.csproj",
         "packagesPath": "/Users/ecemnurozen/.nuget/packages/",
-        "outputPath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Domain/obj/",
+        "outputPath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ecemnurozen/.nuget/NuGet/NuGet.Config"

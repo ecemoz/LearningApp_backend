@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JErJw083zMc=",
+  "dgSpecHash": "/wD5Jdjhm8k=",
   "success": true,
-  "projectFilePath": "/Users/ecemnurozen/Projects/LearningApp_backend/src/LearningApp.Infrastructure/LearningApp.Infrastructure.csproj",
+  "projectFilePath": "/Users/ecemnurozen/Projects/LearningApp_Final/LearningApp_backend/src/LearningApp.Infrastructure/LearningApp.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/ecemnurozen/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/ecemnurozen/.nuget/packages/microsoft.build.framework/18.0.2/microsoft.build.framework.18.0.2.nupkg.sha512",
